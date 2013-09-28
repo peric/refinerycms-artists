@@ -3,6 +3,7 @@
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = 'refinerycms-artists'
+  s.authors           = ['Drazen Peric']
   s.version           = '1.0'
   s.description       = 'Ruby on Rails Artists extension for Refinery CMS'
   s.date              = '2013-06-20'
