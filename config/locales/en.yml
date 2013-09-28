@@ -1,0 +1,56 @@
+en:
+  refinery:
+    plugins:
+      artists:
+        title: Artists
+    artists:
+      admin:
+        artists:
+          actions:
+            create_new: Add New Artist
+            reorder: Reorder Artists
+            reorder_done: Done Reordering Artists
+          records:
+            title: Artists
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Artists yet. Click "Add New Artist" to add your first artist.
+          artist:
+            view_live_html: View this artist live <br/><em>(opens in a new window)</em>
+            edit: Edit this artist
+            delete: Remove this artist forever
+      artists:
+        show:
+          other: Other Artists
+  activerecord:
+    attributes:
+      'refinery/artists/artist':
+        name: Name
+
+        location: Location
+
+        label: Label
+
+        songkick: Songkick ID
+
+        website: Website
+
+        facebook: facebook
+
+        twitter: twitter
+
+        bandcamp: bandcamp
+
+        lastfm: lastfm
+
+        photo: Photo
+
+        bio: Bio
+
+        discography: Discography
+
+        booking: Booking
+
+        downloads: Downloads
+
+        availability: Availability
+

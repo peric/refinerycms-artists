@@ -1,0 +1,33 @@
+
+<li class='clearfix record <%= cycle("on", "on-hover") %>' id="<%= dom_id(artist) -%>">
+  <span class='title'>
+    <%= artist.name %>
+
+    <% if Refinery.i18n_enabled? and Refinery::I18n.frontend_locales.many? %>
+      <span class='preview'>
+        <% artist.translations.each do |translation| %>
+          <% if translation.bio.present? %>
+            <%= link_to refinery_icon_tag("flags/#{translation.locale}.png", :size => '16x11'),
+                         refinery.edit_artists_admin_artist_path(artist, :switch_locale => translation.locale),
+                         :class => 'locale' %>
+          <% end %>
+        <% end %>
+      </span>
+    <% end %>
+
+  </span>
+  <span class='actions'>
+    
+    <%= link_to refinery_icon_tag("application_go.png"), refinery.artists_artist_path(artist),
+        :title => t('.view_live_html'),
+        :target => "_blank" %>
+    
+    <%= link_to refinery_icon_tag("application_edit.png"), refinery.edit_artists_admin_artist_path(artist),
+         :title => t('.edit') %>
+    <%= link_to refinery_icon_tag("delete.png"), refinery.artists_admin_artist_path(artist),
+        :class => "cancel confirm-delete",
+        :title => t('.delete'),
+        :confirm => t('message', :scope => 'refinery.admin.delete', :title => artist.name),
+        :method => :delete %>
+  </span>
+</li>

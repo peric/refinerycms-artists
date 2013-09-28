@@ -1,0 +1,100 @@
+<% content_for :main_title do %>
+  <%= @artist.name %>
+<% end %>
+
+<% content_for :main_content do %>
+    <div class="artist">
+        <div class="main-photo-holder">
+            <%= image_fu @artist.photo, '660x350#' %>
+            <div class="artist-name single-artist">
+                <h1>
+                    <%=raw @artist.name %>
+                </h1>
+                <div class="pull-left">
+                    <span>
+                        <% unless @artist.location.blank? %>
+                            <strong><%= t('activerecord.attributes.refinery/artists/artist.location') %>:</strong> <%=raw @artist.location %>
+                        <% end %>
+                    </span>
+                    <span>
+                        <% unless @artist.label.blank? %>
+                            <strong><%= t('activerecord.attributes.refinery/artists/artist.label') %>:</strong> <%=raw @artist.label %>
+                        <% end %>
+                    </span>
+                </div>
+                <div class="pull-right">
+                    <ul class="social-networks social-artist">
+                        <% unless @artist.website.blank? %>
+                            <li>
+                                <a href="<%= @artist.website %>" class="website" target="_blank" title="website"></a>
+                            </li>
+                        <% end %>
+                        <% unless @artist.facebook.blank? %>
+                            <li>
+                                <a href="<%= @artist.facebook %>" class="facebook" target="_blank" title="facebook"></a>
+                            </li>
+                        <% end %>
+                        <% unless @artist.twitter.blank? %>
+                            <li>
+                                <a href="<%= @artist.twitter %>" class="twitter" target="_blank" title="twitter"></a>
+                            </li>
+                        <% end %>
+                        <% unless @artist.bandcamp.blank? %>
+                            <li>
+                                <a href="<%= @artist.bandcamp %>" class="bandcamp" target="_blank" title="bandcamp"></a>
+                            </li>
+                        <% end %>
+                        <% unless @artist.lastfm.blank? %>
+                            <li>
+                                <a href="<%= @artist.lastfm %>" class="lastfm" target="_blank" title="lastfm"></a>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <% unless @artist.bio.blank? %>
+                <div class="bio">
+                    <%=raw @artist.bio %>
+                </div>
+            <% end %>
+            <% unless @artist.discography.blank? %>
+                <div class="discography">
+                    <h3>
+                        <%= t('activerecord.attributes.refinery/artists/artist.discography') %>
+                    </h3>
+                    <%=raw @artist.discography %>
+                </div>
+            <% end %>
+            <% unless @artist.booking.blank? %>
+                <div class="booking">
+                    <h3>
+                        <%= t('activerecord.attributes.refinery/artists/artist.booking') %>
+                    </h3>
+                    <span>
+                        <%=raw strip_tags(@artist.booking) %>
+                    </span>
+                </div>
+            <% end %>
+            <% unless @artist.availability.blank? %>
+                <div class="availability">
+                    <h3>
+                        <%= t('activerecord.attributes.refinery/artists/artist.availability') %>
+                    </h3>
+                    <span>
+                        <%=raw strip_tags(@artist.availability) %>
+                    </span>
+                </div>
+            <% end %>
+            <% unless @artist.downloads.blank? %>
+                <div class="downloads">
+                    <%=raw @artist.downloads %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+<% end %>
+
+<%= render '/refinery/content_page' %>
