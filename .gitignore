@@ -1,10 +1,6 @@
 refinerycms-artists.gemspec
 refinerycms-artists-1.0.gem
 
-script/*
-spec/*
-tasks/*
-
 # Standard
 *.rbc
 *.sassc
