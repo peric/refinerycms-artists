@@ -4,7 +4,7 @@ module Refinery
 
       self.table_name = 'refinery_artists'
 
-      attr_accessible :name, :location, :label, :songkick, :website, :facebook, :twitter, :bandcamp, :lastfm, :photo_id, :bio, :discography, :booking, :downloads, :availability, :position
+      attr_accessible :name, :slug, :location, :label, :songkick, :website, :facebook, :twitter, :bandcamp, :lastfm, :photo_id, :bio, :discography, :booking, :downloads, :availability, :position
 
       # add: website, facebook, twitter, bandcamp, last.fm, discogs
       # remove: links
@@ -21,8 +21,20 @@ module Refinery
 
       belongs_to :photo, :class_name => '::Refinery::Image'
 
+      before_save do
+        self.slug = self.name.parameterize
+      end
+
       def to_param
-        name.parameterize
+        slug
+      end
+
+      def self.find(input)
+        if input.is_a?(Integer)
+          super
+        else
+          find_by_slug(input)
+        end
       end
     end
   end

@@ -12,7 +12,7 @@ module Refinery
       end
 
       def show
-        @artist = Artist.where(:name.parametarize => params[:id]).first
+        @artist = Artist.find(params[:id])
 
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @artist in the line below:
