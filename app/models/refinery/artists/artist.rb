@@ -26,11 +26,7 @@ module Refinery
       end
 
       def self.find(input)
-        if input.is_a?(Integer)
-          super
-        else
-          find_by_slug(input)
-        end
+        input.to_i == 0 ? find_by_name(input) : super
       end
     end
   end
