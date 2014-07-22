@@ -2,7 +2,7 @@ Refinery::Core::Engine.routes.append do
 
   # Frontend routes
   namespace :artists do
-    resources :artists, :path => '', param: :slug, :only => [:index, :show]
+    resources :artists, :path => '', :only => [:index, :show]
   end
 
   # Admin routes

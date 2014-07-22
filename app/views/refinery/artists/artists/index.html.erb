@@ -2,7 +2,7 @@
     <ul class="artists">
         <% @artists.each_with_index do |artist, index| %>
             <li class="<% if index % 2 == 1 %>pull-right<% end %><% if index > 1 %> top-margin<% end %>">
-              <a href="<%= refinery.artists_artist_path(artist.name.parameterize) %>">
+              <a href="<%= refinery.artists_artist_path(artist) %>">
                     <%= image_fu artist.photo, '300x200#' %>
                     <h2 class="artist-name">
                         <%= artist.name %>

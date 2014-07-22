@@ -15,17 +15,15 @@ module Refinery
         attr_accessible :locale
       end
 
-
-
       acts_as_indexed :fields => [:name, :location, :label, :songkick, :website, :facebook, :twitter, :bandcamp, :lastfm, :bio, :discography, :booking, :downloads, :availability]
 
       validates :name, :presence => true, :uniqueness => true
 
-
-
       belongs_to :photo, :class_name => '::Refinery::Image'
 
-
+      def to_param
+        name.parameterize
+      end
     end
   end
 end
