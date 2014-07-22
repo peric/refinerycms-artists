@@ -26,7 +26,7 @@ module Refinery
       end
 
       def self.find(input)
-        input.to_i == 0 ? find_by_name(input) : super
+        input.to_i == 0 ? find_by_slug(input) : super
       end
     end
   end
