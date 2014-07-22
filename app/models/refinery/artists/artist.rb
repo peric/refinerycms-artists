@@ -25,10 +25,6 @@ module Refinery
         self.slug = self.name.parameterize
       end
 
-      def to_param
-        slug
-      end
-
       def self.find(input)
         if input.is_a?(Integer)
           super
