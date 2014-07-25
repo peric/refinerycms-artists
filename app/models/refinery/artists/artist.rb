@@ -25,7 +25,8 @@ module Refinery
         self.slug = self.name.parameterize
       end
 
-      def self.find(input)
+      def self.find(input, locale=nil)
+        puts input
         input.to_i == 0 ? find_by_slug(input) : super
       end
     end
